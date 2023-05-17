@@ -1,0 +1,65 @@
+{
+  "private": false,
+  "name": "elelive-ui",
+  "version": "2.0.27",
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build && gulp",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.3",
+    "axios": "^0.21.1",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.0",
+    "lodash": "^4.17.21",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-loading-skeleton": "^2.2.0",
+    "react-transition-group": "^4.4.2",
+    "video-animation-player": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.172",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "@types/react-transition-group": "^4.4.2",
+    "@umijs/plugin-sass": "^1.1.1",
+    "@umijs/test": "^3.0.5",
+    "browser-sync": "^2.27.5",
+    "dumi": "^1.0.16",
+    "dumi-theme-mobile": "^1.1.7",
+    "father-build": "^1.19.8",
+    "gh-pages": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-remove-code": "^3.0.4",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0",
+    "file-loader": "^6.2.0"
+  }
+}

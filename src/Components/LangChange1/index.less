@@ -1,0 +1,64 @@
+.__dumi-default-mobile-demo-layout {
+  padding: 0 !important;
+}
+.elelive-langChange {
+  width: 4.3rem;
+  .lang-btn {
+    max-width: 4.3rem;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: 0.1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    &:focus,
+    &:hover {
+      color: #409eff;
+      border-color: #c6e2ff;
+      background-color: #ecf5ff;
+    }
+  }
+  .lang-list {
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 5px 0;
+    .lang-item {
+      font-size: 14px;
+      padding: 0 20px;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #606266;
+      height: 34px;
+      line-height: 34px;
+      box-sizing: border-box;
+      cursor: pointer;
+      text-align: center;
+      &:hover {
+        background-color: #f5f7fa;
+      }
+      &.selected {
+        color: #409eff;
+        font-weight: 700;
+      }
+    }
+  }
+}

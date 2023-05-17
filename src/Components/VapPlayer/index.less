@@ -1,0 +1,92 @@
+.Avatar {
+  .Avatar-img {
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 1.3rem;
+    margin: auto;
+    position: relative;
+    background: #220375;
+
+    //overflow: hidden;
+    background: linear-gradient(0deg, #ff7781, #ffc4c6, #ff929b);
+
+    .anchorHead-img-no {
+      width: 0.83rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: 1;
+
+      img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    .Avatar-img-has {
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 1.3rem;
+      z-index: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+
+      img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 1.3rem;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      content: '';
+      border-radius: 1.3rem;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      background: #220375;
+    }
+  }
+
+  .Avatar-type {
+    text-align: center;
+    font-size: 0.2rem;
+    color: #fff;
+    padding: 0.1rem 0.2rem;
+    background: #ff637e;
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+    bottom: -0.1rem;
+    line-height: 0.2rem;
+    border-radius: 1rem;
+  }
+
+  .Avatar-name {
+    //@extend .one-text-row-hidden;
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+  }
+}
