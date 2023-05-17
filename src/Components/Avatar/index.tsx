@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import Img2 from '../Img2';
+import Img2 from '../Img';
 //removeIf(!production)
 import './index.less';
 //endRemoveIf(!production)

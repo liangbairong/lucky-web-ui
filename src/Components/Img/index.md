@@ -1,12 +1,12 @@
 ---
-title: Img 图片
-order: 1
+title: Img2 图片
+order: 2
 group:
   title: 基本组件
   order: 1
 ---
 
-# Img 图片
+# Img2 图片
 
 兜底图，国际化图片
 
@@ -18,53 +18,27 @@ import { Img } from 'lucky-web-ui';
 
 export default () => {
   const [url, setUrl] = useState(null);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setUrl('http://www.elelive.tv/img/Elelive_logo.png');
-  //   }, 1000);
-  // }, []);
 
   return (
     <div>
       <h1 style={{ fontSize: '0.4rem' }}>基本</h1>
       <Img
         src={require('../../assets/demos/images/demo.jpg')}
+        // src={'../../assets/demos/images/demo.jpg'}
         style={{ width: '5rem', height: '5rem' }}
-        isSkeleton={true}
+        // picture={false}
       />
-      <h1 style={{ fontSize: '0.4rem' }}>兜底图</h1>
-      <Img
-        src={'./不存在图片.png'}
-        style={{ width: '5rem', height: '5rem', backgroundColor: '#38216f' }}
-      />
-      ddd
-      <Img
-        src={url}
-        style={{ width: '5rem', height: '5rem', backgroundColor: '#38216f' }}
-      />
-      <h1 style={{ fontSize: '0.4rem' }}>国际化图片</h1>
-      <Img
-        src={{
-          'zh-CN': require('../../assets/demos/images/into.png'),
-          'zh-TW': require('../../assets/demos/images/into.png'),
-          en: require('../../assets/demos/images/into-en.png'),
-          id: require('../../assets/demos/images/into-id.png'),
-          vi: require('../../assets/demos/images/into-vi.png'),
-        }}
-        language="en"
-        className="menu-main-title"
-      />
-      <h1 style={{ fontSize: '0.4rem' }}>头像x1 x2 </h1>
       <Img
         src={
-          'https://showme-livecdn.elelive.net/avatar/11617384?1=1&t=1644497836548'
+          'https://showme-livecdn.elelive.net/avatar/10104201?1=1&t=1667002858358'
         }
-        xOssProcess="1x"
+        style={{ width: '5rem', height: '5rem' }}
+        xOssProcess={'1x'}
       />
-      <h1 style={{ fontSize: '0.4rem' }}>webp格式 </h1>
       <Img
-        src={require('../../assets/demos/images/demo.jpg')}
-        webp={require('../../assets/demos/images/demo.webp')}
+        src={'https://showme-livecdn.elelive.net/avatar/10104201'}
+        style={{ width: '5rem', height: '5rem' }}
+        xOssProcess={'1x'}
       />
     </div>
   );

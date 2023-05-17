@@ -1,8 +1,4 @@
-import React, { useMemo, useEffect, useState, useRef, useReducer } from 'react';
-import classNames from 'classnames';
-// import Skeleton from '../Skeleton';
-import Utils from '../Utils';
-
+import React, { useEffect, useState } from 'react';
 //removeIf(!production)
 import './index.less';
 //endRemoveIf(!production)
@@ -14,17 +10,17 @@ type IImg = {
    * @description  图片路径，可传多语言图片
    * @default
    */
-  src: string | Record<LanguageMap, any>;
+  src: string | any;
   /**
    * @description  自定义兜底图
    * @default
    */
   seatImg?: React.ReactNode;
   /**
-   * @description  webp图片路径
+   * @description  picture兼容图片模式
    * @default true
    */
-  webp?: boolean;
+  picture?: boolean;
   /**
    * @description  class
    * @default
@@ -35,35 +31,6 @@ type IImg = {
    * @default
    */
   style?: object;
-  /**
-   * @description  兜底图样式
-   * @default
-   */
-  seatStyle?: object;
-  /**
-   * @description  兜底图class
-   * @default
-   */
-  seatClassName?: string;
-  /**
-   * @description  是否使用骨架，默认不使用
-   * @default
-   */
-  isSkeleton?: boolean;
-  /**
-   * @description  骨架宽度，可使用px rem % vw 等单位
-   * @default 100%
-   */
-  skeWidth?: number | string;
-  /**
-   * @description  骨架高度
-   * @default
-   */
-  skeHeight?: number | string;
-  /**
-   * @description  当前语言
-   * @default   zh-CN
-   */
   language?: LanguageMap;
   /**
    * @description  头像改为使用oss裁剪参数 传 2x 或  1x
@@ -71,37 +38,51 @@ type IImg = {
    */
   xOssProcess?: string;
   /**
+   * @description  占位图
+   * @default
+   */
+  defaultImg?: string;
+  /**
+   * @description  图片加载方式
+   * @default lazy
+   */
+  loading?: 'eager' | 'lazy' | undefined;
+  /**
    * @description  点击事件
    * @default
    */
   onClick?: () => void;
 };
 
-interface ImgStateProps {
-  url?: string;
-  type?: 0 | 1 | 2 | 3; // 0: 未初始化，1：初始化并使用webp图，2：初始化并使用原图格式，3：报错使用兜底图片
-}
+const transUrl = (origUrl: string, type: string) => {
+  const reg = /.png|.jpg/g;
+  return origUrl.replace(reg, type);
+};
+const typeFn: any = {
+  avif: (origUrl: string) => {
+    return transUrl(origUrl, '.avif');
+  },
+  webp: (origUrl: string) => {
+    return transUrl(origUrl, '.webp');
+  },
+};
 
-const Img: React.FC<IImg> = ({
+const Img = ({
   src = '',
   className = '',
   style = {},
-  webp = false,
-  seatImg,
-  seatStyle = {},
-  seatClassName = '',
-  isSkeleton = false,
-  skeWidth = '100%',
-  skeHeight = '100%',
+  picture = true,
   language = 'zh-CN',
-  xOssProcess = '1x',
+  loading = 'lazy',
+  xOssProcess = '',
+  defaultImg = '',
   onClick = () => {},
   ...props
 }: IImg) => {
   const defaultSrc =
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAA+BAMAAACl9jq3AAAAFVBMVEUAAAD///////////////////////9Iz20EAAAAB3RSTlMAGw4SChYGgTmsQQAAAYdJREFUSMfN1LFuwjAQBuBrEzL3GswcpKozULVzItTOsYqYDbTv/wqNq3BnX+L6hg78AwHn42w5OcM0+1c0ny0oUqDP49/o68kNnx3+xn+97OaLl1vE43AdLj7tMDJcDm4qzxYR64gu0A9NCl9oWqLjUkw7K7FhSt9iW+CYPqR2HKwdy9Je6Sqglb/IndvS4DKgJVKOV/mO/P+A3iNnXG44VAe0CMdpeoph6rdVLKHABL2LbrixKId+NzHFnooyXYuqvNouQRs4YZRWzI+OqkraAwqarPoAVl91na9KG63fgcpKmtxX+E7RhXiMoqxJ0Q01C6+I6fTNopuCivdV9gsumc52QTDViqnsLdkyPVPZsdJumMpzQNo2pCekk2hqDYR0QbOLXCziMqIVnYQy1f6ljSicdx+QTER9bpvS6fKv1KppRa2bCZ+2eXntKKPfqzovS+qcbDrqnFz23DmZcD82iiel3VZxmqjoSk8bNTWgpkc9dWp6AC01Tk0b0DbLG2jSIZrn1M0flS9yZtc6beUAAAAASUVORK5CYII=';
-  const [origUrl, setOrigUrl] = useState('');
-  // 图片前缀判断
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkBAMAAACCzIhnAAAAG1BMVEUAAAD////////////////////////////////rTT7CAAAACXRSTlMAGRsFCAwQFhPbIksmAAAB2UlEQVRYw+3Wz0/qQBDA8U1K9R3f7IvvveuMVDxS1MRjwcR4REyMR0I0elSi4lHx179tEcpMOtplbh76PRBS+KTdbXfB1dXV1XGH75PJW9siYiIkarqV2j3t568pQl4rfxddXWSVIDrzNPtiDz5r55iodV4hGk8E4PPTdJdklB/A1+/FFAHAXwsSwSy6qxJ5TUFirDQjhM8SQdYWx+j2K3GMMG9bkPXiIA212CcoEiSFolZbDcTDsjaTLhT5pEwGyB9mTHpQpC4tJmDSZzIAbrt0EggT/yhFjPKjIZMRiLYk6ZRIKokcJDeFANFXBlWE+y3IeLWzXKsJM41lPTR8fWMiL0mfyaB8XVyKYdIqLfrx16SnppjbF6fJmHRZ8L3XjzIvE7leMNMrf3lp/xwTXpXPTrdGPJdpee37DcfppZwIEuNiIN/sz0dzsylINBf/C6GNx9lkMpk/4/SXhWpvTECZJB0ivBNC17i62XCSNCYPJy7QjpNktX406dpJz04Gi+fT0FQtw1CR2lBDFY98Yp/jpgukt6g/hruCaksJdETLzSkY/wYa72SKYJxj3iA3zcQPzQSdmTTNxPetxCfOSjCzEnp2hjrqT16wX0T44mxd3h+4urq6unIfL5d/vhcnmkwAAAAASUVORK5CYII=';
+  const [url, setUrl] = useState('');
+
   const checkImgSuffix = (img: string): boolean => {
     if (!img || typeof img !== 'string') return false;
     return !(
@@ -110,98 +91,54 @@ const Img: React.FC<IImg> = ({
     );
   };
 
-  // 图片处理reduce
-  const reducer: React.Reducer<ImgStateProps, ImgStateProps> = (
-    state,
-    action,
-  ) => {
-    // type === 3，或者图片为空直接显示兜底图
-    if (action.type === 3 || !src) {
-      return { type: 3, url: defaultSrc };
-    }
-
-    // 处理国际化图片，和图片为空的情况
-    //原始url
-    const origUrl = typeof src === 'object' ? src[language] : src;
-    //合成处理url
-    let comUrl = origUrl;
-
-    // 处理图片后缀
-    if (xOssProcess) {
-      comUrl = comUrl
-        .split('?')
-        .map((item: string) =>
-          item.includes('https://') && checkImgSuffix(item)
-            ? `${item}!${xOssProcess}`
-            : item,
-        )
-        .join('?');
-    }
-
-    // 如果type为1或者允许webp，则直接返回webp图片
-    if (action.type === 1) {
-      const t = comUrl.replace(/\.(jpg|jpeg|png)$/, '.webp');
-      return {
-        type: action.type,
-        url: t,
-      };
-    }
-    // 如果type为2则直接返回原图
-    return { type: 2, url: origUrl };
-  };
-
-  // 定义图片参数
-  const [config, dispatch] = useReducer<
-    React.Reducer<ImgStateProps, ImgStateProps>
-  >(reducer, { type: 0, url: '' });
-
-  // 解构图片参数
-  const { type = 0, url = '' } = config;
-
-  // 图片错误处理
-  const onError = () => {
-    // 如果是使用了webp，则先尝试请求原图
-    console.log('请求失败图片---' + url);
-    if (webp) {
-      switch (config.type) {
-        case 1:
-          dispatch({ type: 2 });
-          break;
-        case 2:
-          dispatch({ type: 3 });
-      }
-    } else {
-      dispatch({ type: 3 });
-    }
-  };
-
-  // 图片属性
-  const imageProps = {
-    style,
-    onClick,
-    src: url,
-    className: classNames(className || 'eleimg-img'),
-    alt: '',
-    onError,
-    ...props,
-  };
-
-  // 图片更新
   useEffect(() => {
-    // 如果是使用了webp，则先转换为webp
-    if (webp) {
-      dispatch({ type: 1 });
-    } else {
-      dispatch({ type: 2 });
+    if (src) {
+      const origUrl = typeof src === 'object' ? src[language] : src;
+      if (origUrl) {
+        if (origUrl.includes('https://') || origUrl.includes('http://')) {
+          if (xOssProcess) {
+            // setUrl(`${origUrl}!${xOssProcess}`);
+            const a = origUrl
+              .split('?')
+              .map((item: string) =>
+                item.includes('https://') && checkImgSuffix(item)
+                  ? `${item}!${xOssProcess}`
+                  : item,
+              )
+              .join('?');
+            setUrl(a);
+          } else {
+            setUrl(origUrl);
+          }
+        } else {
+          const tWebp: any = window.localStorage.getItem('compatibilityImg');
+          // @ts-ignore
+          if (typeFn[tWebp] && picture && window.contextBuild) {
+            setUrl(typeFn[tWebp](origUrl));
+          } else {
+            setUrl(origUrl);
+          }
+        }
+      }
     }
-  }, [language, src]);
+  }, [src]);
 
-  // 阻塞，避免报错
-  if (!url || type === 0) {
-    return <></>;
-  }
+  const onError = () => {
+    setUrl(defaultImg || defaultSrc);
+  };
 
-  return <img {...imageProps} />;
+  if (!url) return;
+
+  return (
+    <img
+      src={url}
+      style={style}
+      className={className}
+      onError={onError}
+      onClick={onClick}
+      {...props}
+    />
+  );
 };
 
 export default Img;
