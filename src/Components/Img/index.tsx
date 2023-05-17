@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-//removeIf(!production)
-import './index.less';
-//endRemoveIf(!production)
+import { Image, lpx } from 'lucky-web';
 
 type LanguageMap = 'zh-CN' | 'zh-TW' | 'en' | 'vi' | 'id' | 'ms';
 
@@ -127,15 +125,14 @@ const Img = ({
     setUrl(defaultImg || defaultSrc);
   };
 
-  if (!url) return;
+  if (!url) return <></>;
 
   return (
-    <img
+    <Image
       src={url}
-      style={style}
-      className={className}
-      onError={onError}
-      onClick={onClick}
+      style={[{ width: lpx(50), height: lpx(50) }, style]}
+      // onError={onError}
+      // onClick={onClick}
       {...props}
     />
   );

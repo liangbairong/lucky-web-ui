@@ -14,33 +14,21 @@ Demo:
 
 ```tsx
 import React, { useEffect, useState } from 'react';
+import Canvas from '../../uilts/canvas';
+import { View, Text } from 'lucky-web';
 import { Img } from 'lucky-web-ui';
 
 export default () => {
   const [url, setUrl] = useState(null);
 
   return (
-    <div>
-      <h1 style={{ fontSize: '0.4rem' }}>基本</h1>
-      <Img
-        src={require('../../assets/demos/images/demo.jpg')}
-        // src={'../../assets/demos/images/demo.jpg'}
-        style={{ width: '5rem', height: '5rem' }}
-        // picture={false}
-      />
+    <Canvas>
       <Img
         src={
           'https://showme-livecdn.elelive.net/avatar/10104201?1=1&t=1667002858358'
         }
-        style={{ width: '5rem', height: '5rem' }}
-        xOssProcess={'1x'}
       />
-      <Img
-        src={'https://showme-livecdn.elelive.net/avatar/10104201'}
-        style={{ width: '5rem', height: '5rem' }}
-        xOssProcess={'1x'}
-      />
-    </div>
+    </Canvas>
   );
 };
 ```
