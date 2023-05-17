@@ -1,8 +1,8 @@
-# elelive-ui
+# lucky-web-ui
 
 ## Getting Started
 
-本组件库依赖 react 版本17.0.2以上
+本组件库依赖lucky-web, react 版本17.0.2.
 
 安装依赖
 
