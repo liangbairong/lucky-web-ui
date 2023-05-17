@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { VapPlayer } from 'elelive-ui';
+import { VapPlayer } from 'lucky-web-ui';
 import vapSource from '../../assets/demos/video/200k.mp4';
 import config from '../../assets/demos/video/vapc.json';
 

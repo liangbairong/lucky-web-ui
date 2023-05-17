@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { SwipeMenu } from 'elelive-ui';
+import { SwipeMenu } from 'lucky-web-ui';
 
 export default () => (
   <div>

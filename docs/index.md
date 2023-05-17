@@ -3,7 +3,7 @@ title: 介绍
 order: 1
 ---
 
-# elelive-ui
+# lucky-web-ui
 
 本组件库依赖 react 版本 17.0.2 以上
 
@@ -45,15 +45,15 @@ babel 模式下一些文件不会被编译到 es 和 lib 下，包含：
 ### 按需加载
 
 ```tsx | pure
-import Skeleton from 'elelive-ui/es/Components/Skeleton';
-import 'elelive-ui/es/Components/Skeleton/index.css';
+import Skeleton from 'lucky-web-ui/es/Components/Skeleton';
+import 'lucky-web-ui/es/Components/Skeleton/index.css';
 <Skeleton />;
 ```
 
 ### 全部引入
 
 ```tsx | pure
-import { Skeleton } from 'elelive-ui';
-import 'elelive-ui/es/index-all.min.css';
+import { Skeleton } from 'lucky-web-ui';
+import 'lucky-web-ui/es/index-all.min.css';
 <Skeleton />;
 ```

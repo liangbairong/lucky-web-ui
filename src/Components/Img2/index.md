@@ -14,7 +14,7 @@ Demo:
 
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { Img2 } from 'elelive-ui';
+import { Img2 } from 'lucky-web-ui';
 
 export default () => {
   const [url, setUrl] = useState(null);

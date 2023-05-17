@@ -12,7 +12,7 @@ Demo:
 
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { CountDown } from 'elelive-ui';
+import { CountDown } from 'lucky-web-ui';
 let b = new Date('2023/03/10 19:09:00').getTime();
 let c = Date.now() + 60000;
 export default () => {

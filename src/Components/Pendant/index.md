@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React, { useEffect, useState } from 'react';
-import { Pendant } from 'elelive-ui';
+import { Pendant } from 'lucky-web-ui';
 
 const boxHeight: number = 129; // 挂件高度
 let fansScore: number = 0; // 业务代码用于数据丢弃

@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Skeleton } from 'elelive-ui';
+import { Skeleton } from 'lucky-web-ui';
 
 const Box = ({ children }) => (
   <a

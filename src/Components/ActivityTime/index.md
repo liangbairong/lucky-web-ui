@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Loading } from 'elelive-ui';
+import { Loading } from 'lucky-web-ui';
 
 export default () => <Loading src="./dome.png" />;
 ```

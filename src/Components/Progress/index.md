@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Progress } from 'elelive-ui';
+import { Progress } from 'lucky-web-ui';
 
 export default () => <Progress allValue={100} haveValue={60} />;
 ```

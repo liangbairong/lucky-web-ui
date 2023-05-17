@@ -14,7 +14,7 @@ js 调用
 
 ```tsx
 import React from 'react';
-import { Toast } from 'elelive-ui';
+import { Toast } from 'lucky-web-ui';
 
 export default () => {
   const onclikcs = () => {

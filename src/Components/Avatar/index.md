@@ -14,7 +14,7 @@ group:
 
 ```tsx
 import React from 'react';
-import { Avatar } from 'elelive-ui';
+import { Avatar } from 'lucky-web-ui';
 
 export default () => (
   <Avatar

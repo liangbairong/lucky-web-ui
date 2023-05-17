@@ -12,7 +12,7 @@ Demo:
 
 ```tsx
 import React, { useCallback, useState } from 'react';
-import { Dialog } from 'elelive-ui';
+import { Dialog } from 'lucky-web-ui';
 
 export default () => {
   const [isVisible, setIsVisible] = useState<Boolean>(false);

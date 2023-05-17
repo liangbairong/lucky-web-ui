@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { Loading } from 'elelive-ui';
+import { Loading } from 'lucky-web-ui';
 
 export default () => {
   const [open, setOpen] = useState(false);

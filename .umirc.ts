@@ -1,9 +1,9 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: 'elelive-ui',
-  favicon: 'http://www.elelive.tv/img/Elelive_logo.png',
-  logo: 'http://www.elelive.tv/img/Elelive_logo.png',
+  title: 'lucky-web-ui',
+  favicon: 'https://liangbairong.gitee.io/lucky-web/favicon.ico',
+  logo: 'https://liangbairong.gitee.io/lucky-web/logo.png',
   outputPath: 'docs-dist',
   mode: 'doc',
   exportStatic: {},

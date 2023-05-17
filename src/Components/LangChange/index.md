@@ -13,7 +13,7 @@ group:
 
 ```tsx
 import React, { useState } from 'react';
-import { LangChange } from 'elelive-ui';
+import { LangChange } from 'lucky-web-ui';
 
 export default () => {
   // const [langSet, setLangSet] = useState([

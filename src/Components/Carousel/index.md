@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useRef } from 'react';
-import { Carousel } from 'elelive-ui';
+import { Carousel } from 'lucky-web-ui';
 
 export default () => {
   const CarouselRefAuto = React.createRef(null);

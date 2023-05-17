@@ -12,7 +12,7 @@ group:
 
 ```tsx
 import React, { useEffect, useState, useRef } from 'react';
-import { LoadMore } from 'elelive-ui';
+import { LoadMore } from 'lucky-web-ui';
 
 export default () => {
   const [list, setList] = useState([1, 2, 3, 4, 5]);

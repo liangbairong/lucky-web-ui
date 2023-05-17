@@ -10,7 +10,7 @@ group:
 
 ```tsx
 import React, { useState, useCallback } from 'react';
-import { Calendar } from 'elelive-ui';
+import { Calendar } from 'lucky-web-ui';
 
 export default () => {
   const [isVisible, setIsVisible] = useState<Boolean>(false);
