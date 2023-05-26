@@ -1,14 +1,14 @@
 ---
-title: Text
-order: 2
+title: Image
+order: 3
 group:
   title: lucky-web
   order: 1
 ---
 
-# Text
+# Image
 
-渲染文字，需要使用 Text 组件
+图片
 
 Demo:
 <code src="./demo.tsx"></code>

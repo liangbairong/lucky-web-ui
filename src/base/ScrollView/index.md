@@ -1,14 +1,14 @@
 ---
-title: Text
-order: 2
+title: ScrollView
+order: 4
 group:
   title: lucky-web
   order: 1
 ---
 
-# Text
+# ScrollView
 
-渲染文字，需要使用 Text 组件
+内容滚动
 
 Demo:
 <code src="./demo.tsx"></code>
