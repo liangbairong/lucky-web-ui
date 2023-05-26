@@ -2,7 +2,7 @@
 title: LuckySvga 图片
 order: 2
 group:
-  title: 基本组件
+  title: lucky-web-ui
   order: 30
 ---
 

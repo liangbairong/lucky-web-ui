@@ -2,8 +2,8 @@
 title: Countdown 倒计时
 order: 3
 group:
-title: 基本组件
-order: 1
+  title: lucky-web-ui
+  order: 1
 ---
 
 # Countdown 倒计时

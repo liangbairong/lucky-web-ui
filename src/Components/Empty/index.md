@@ -2,7 +2,7 @@
 title: Empty 空状态
 order: 13
 group:
-  title: 基本组件
+  title: lucky-web-ui
   order: 1
 ---
 

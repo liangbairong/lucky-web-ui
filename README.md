@@ -1,8 +1,6 @@
 # lucky-web-ui
 
-## Getting Started
-
-本组件库依赖lucky-web, react 版本17.0.2.
+本组件库依赖 lucky-web、react @17.0.0 以上
 
 安装依赖
 
@@ -28,13 +26,17 @@ $ npm run docs:build
 $ npm run build
 ```
 
-打包使用babel模式：
+### 按需加载
 
-babel 模式下一些文件不会被编译到 es 和 lib 下，包含：
+```tsx | pure
+import Img from 'lucky-web-ui/es/Components/Img';
 
-__test__ 目录  
-fixtures 目录    
-demos 目录  
-mdx 文件  
-md 文件  
-测试文件，比如 test.js、spec.js、e2e.js，后缀还支持 jsx、ts 和 tsx
+<Img />;
+```
+
+### 全部引入
+
+```tsx | pure
+import { Img } from 'lucky-web-ui';
+<Img />;
+```

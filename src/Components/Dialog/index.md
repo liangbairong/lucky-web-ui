@@ -2,7 +2,7 @@
 title: Dialog 弹窗
 order: 3
 group:
-  title: 基本组件
+  title: lucky-web-ui
   order: 1
 ---
 

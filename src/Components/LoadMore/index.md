@@ -2,7 +2,7 @@
 title: LoadMore 加载更多
 order: 5
 group:
-  title: 基本组件
+  title: lucky-web-ui
   order: 1
 ---
 

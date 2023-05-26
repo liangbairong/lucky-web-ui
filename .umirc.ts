@@ -1,7 +1,10 @@
 import { defineConfig } from 'dumi';
 
+const name = 'lucky-web-ui';
 export default defineConfig({
-  title: 'lucky-web-ui',
+  title: name,
+  base: `/${name}/`,
+  publicPath: `/${name}/`,
   favicon: 'https://liangbairong.gitee.io/lucky-web/favicon.ico',
   logo: 'https://liangbairong.gitee.io/lucky-web/logo.png',
   outputPath: 'docs-dist',

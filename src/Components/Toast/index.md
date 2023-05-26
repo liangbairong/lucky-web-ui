@@ -2,7 +2,7 @@
 title: Toast 全局提示
 order: 10
 group:
-  title: 基本组件
+  title: lucky-web-ui
   order: 1
 ---
 
