@@ -18,7 +18,7 @@ const Canvas = ({ children }: any) => {
   return (
     <div
       ref={canvasRef}
-      style={{ position: 'absolute', width: '100%', height: '100%' }}
+      style={{ position: 'fixed', width: '100%', height: '100%' }}
     />
   );
 };
