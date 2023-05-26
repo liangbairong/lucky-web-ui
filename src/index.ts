@@ -11,4 +11,6 @@ export { default as Empty } from './Components/Empty';
 export { default as Toast } from './Components/Toast';
 export { default as Utils } from './Components/Utils';
 export { default as Carousel } from './Components/Carousel';
-export { default as ImgUi } from './Components/Img';
+
+export { default as Img } from './Components/Img';
+export { default as LuckySvga } from './Components/LuckySvga';
