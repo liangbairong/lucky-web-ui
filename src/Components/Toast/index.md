@@ -8,29 +8,7 @@ group:
 
 # Toast 全局提示
 
-js 调用
-
-#### 全屏 loaidng:
-
-```tsx
-import React from 'react';
-import { Toast } from 'lucky-web-ui';
-
-export default () => {
-  const onclikcs = () => {
-    console.log(Toast);
-    Toast.open({
-      content:
-        '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      time: 2000,
-    });
-  };
-  return (
-    <div>
-      <div onClick={onclikcs}>click</div>
-    </div>
-  );
-};
-```
+Demo:
+<code src="./demo.tsx"></code>
 
 <API src="./index.tsx"></API>
