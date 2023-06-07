@@ -10,7 +10,7 @@ lucky-web 是个使用 yoga 的布局引擎和 React，来绘制 canvas 的渲�
 ### 使用方法
 
 ```bash
-$ npm i lucky-web lucky-web -S
+$ npm i lucky-web
 ```
 
 ```tsx | pure
@@ -41,7 +41,7 @@ lucky-web-ui 是基于 lucky-web 封装的一些列常用组件库
 ### 使用方法
 
 ```bash
-$ npm i lucky-web lucky-web-ui -S
+$ npm i lucky-web-ui -S
 ```
 
 ### 按需加载
