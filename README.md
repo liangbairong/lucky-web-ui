@@ -1,32 +1,14 @@
 # lucky-web-ui
 
-本组件库依赖 lucky-web、react @17.0.0 以上
+lucky-web-ui 是基于 lucky-web 封装的一些列常用组件库
 
-安装依赖
-
-```bash
-$ npm i
-```
-
-启动文档
+使用
 
 ```bash
-$ npm start
+$ npm i lucky-web-ui
 ```
 
-打包文档
-
-```bash
-$ npm run docs:build
-```
-
-打包组件库
-
-```bash
-$ npm run build
-```
-
-### 按需加载
+### 按需引用
 
 ```tsx | pure
 import Img from 'lucky-web-ui/es/Components/Img';
