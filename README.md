@@ -2,6 +2,8 @@
 
 lucky-web-ui 是基于 lucky-web 封装的一些列常用组件库
 
+### [文档](https://liangbairong.gitee.io/lucky-web-ui/)
+
 使用
 
 ```bash
