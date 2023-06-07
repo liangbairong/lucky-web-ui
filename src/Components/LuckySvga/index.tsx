@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import {
-  RevasCanvas,
+  LuckCanvas,
   Node,
   getFrameFromNode,
   clamp,
@@ -76,7 +76,7 @@ const LuckySvga = ({
     op.current.setValue(1);
   };
 
-  const drawEarth = (canvas: RevasCanvas, node: Node) => {
+  const drawEarth = (canvas: LuckCanvas, node: Node) => {
     if (!player?.current) return;
     const frame = getFrameFromNode(node);
     const { width, height, x, y } = frame;

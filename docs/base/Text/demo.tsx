@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Canvas from '../../uilts/canvas';
+import Canvas from '../../../src/uilts/canvas';
 import { View, Text, lpx } from 'lucky-web';
 const style = {
   box: {
@@ -8,13 +8,14 @@ const style = {
     backgroundColor: '#ffcc99',
     justifyContent: 'center',
     alignItem: 'center',
+    textAlign: 'center',
   },
 };
 
 export default () => {
   return (
     <Canvas>
-      <View style={style.box} />
+      <Text style={style.box}>app nix</Text>
     </Canvas>
   );
 };

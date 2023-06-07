@@ -16,7 +16,7 @@ function removeCodeFn() {
 }
 
 function copyDts() {
-  return src('./lucky-web-ui.d.ts')
+  return src('./index.d.ts')
     .pipe(removeCode({ production: false }))
     .pipe(dest('./es/'));
 }

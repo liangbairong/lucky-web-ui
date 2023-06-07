@@ -2,6 +2,8 @@
   "private": false,
   "name": "lucky-web-ui",
   "version": "0.0.1",
+  "repository": "https://github.com/903529487/lucky-web-ui",
+  "homepage": "https://liangbairong.gitee.io/lucky-web-ui",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

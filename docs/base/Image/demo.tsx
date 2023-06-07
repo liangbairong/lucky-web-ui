@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Canvas from '../../uilts/canvas';
+import Canvas from '../../../src/uilts/canvas';
 import { Image, lpx } from 'lucky-web';
 
 export default () => {

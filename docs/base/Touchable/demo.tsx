@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Canvas from '../../uilts/canvas';
+import Canvas from '../../../src/uilts/canvas';
 import { Touchable, Text, lpx } from 'lucky-web';
 const style = {
   box: {
